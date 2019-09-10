@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="01_-_Exemple_1_-_monThread.java"/>
+	<classpathentry kind="src" path="02_-_Exemple_2_-_monRunnable"/>
+	<classpathentry kind="src" path="03_-_Exemple_Tout-En-Un"/>
+	<classpathentry kind="src" path="04_-_Priorites_toutes_relatives"/>
+	<classpathentry kind="src" path="05_-_Start_vs_run"/>
+	<classpathentry kind="src" path="06_-_Emploi_de_Sleep"/>
+	<classpathentry kind="src" path="07_-_Exemple_sans_volatile"/>
+	<classpathentry kind="src" path="08_-_Exemple_avec_volatile"/>
+	<classpathentry kind="src" path="09_-_Compteurs_anarchiques"/>
+	<classpathentry kind="src" path="10_-_Compteurs_anarchiques_synchronises"/>
+	<classpathentry kind="src" path="11_-_Synchronisation_par_signaux"/>
+	<classpathentry kind="src" path="12_-_Performances_des_compteurs_en_rond"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
