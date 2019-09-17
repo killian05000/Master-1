@@ -1,0 +1,20 @@
+# short example
+var x1;
+var x2;
+var x3;
+var x4;
+var x5;
+maximize obj: 0.1 * x1 + 0.04 * x2 + 0.07 * x3 + 0.06 * x4 + 0.08 * x5;
+s.t. c1: x2 + x5 >= 50000;
+s.t. c2: x1 + x5 <= 50000;
+s.t. c3: x2 + x4 >= 25000;
+s.t. c4: 0.04 * x2 + 0.06 * x4 >= 0.3 * (0.1 * x1 + 0.04 * x2 + 0.07 * x3 + 0.06 * x4 + 0.08 * x5);
+s.t. c5: x1 >= 0;
+s.t. c6: x2 >= 0;
+s.t. c7: x3 >= 0;
+s.t. c8: x4 >= 0;
+s.t. c9: x5 >= 0;
+s.t. c10: x1 + x2 + x3 + x4 + x5 <=100000;
+solve;
+display x1, x2, x3, x4, x5;
+end;
