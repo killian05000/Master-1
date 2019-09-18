@@ -13,7 +13,7 @@ class Item:
          )
 
     def weight_value_ratio(self) -> double:
-        return self.value / self.weight
+        return float(self.value) / float(self.weight)
 
     def __str__(self):
         return f"weight : {self.weight} value : {self.value} ratio : {self.weight_value_ratio()}"
