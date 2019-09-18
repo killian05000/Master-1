@@ -1,5 +1,5 @@
 import sys
-import logging.FileHandler
+import logging
 
 from item import Item
 
@@ -19,10 +19,14 @@ def parser(file_name):
     with open(file_name, 'r') as filehandler:
         bag_size = filehandler.readline()
         item_list = []
-        for line in fileHandler:
+        for line in filehandler:
             weight, value = line.split(" ")
             item_list.append(Item(weight, value))
         return bag_size, item_list
 
 
-print(parser(filename))
+bag_size, item_list = parser(filename)
+print(len(item_list))
+
+for i in range(len(item_list)):
+    print(item_list[i])
