@@ -1,32 +1,23 @@
 import sys
 import logging
-
 from item import Item
+from bag import Bag
+from parser import *
 
-for arg in sys.argv:
-    filename = arg
-
-
-
-a = Item(1, 10)
-b = Item(2, 10)
-print(b)
-
-
-
-
-def parser(file_name):
-    with open(file_name, 'r') as filehandler:
-        bag_size = filehandler.readline()
-        item_list = []
-        for line in filehandler:
-            weight, value = line.split(" ")
-            item_list.append(Item(weight, value))
-        return bag_size, item_list
+filename = 'bag0.txt'
+if (len(sys.argv) > 1):
+    filename = sys.argv[1]
 
 
 bag_size, item_list = parser(filename)
-print(len(item_list))
+b = Bag(bag_size)
+
+for i in range(len(item_list)):
+    print(item_list[i])
+
+item_list.sort(key=lambda x: x.ratio, reverse=True)
+
+print("BBBBBBBBBBBBBBBBBB")
 
 for i in range(len(item_list)):
     print(item_list[i])
