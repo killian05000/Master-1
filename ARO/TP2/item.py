@@ -4,6 +4,7 @@ class Item:
     def __init__(self, weight: int, value: int):
         self.weight = weight
         self.value = value
+        self.ratio = float(self.value) / float(self.weight)
 
     def __eq__(self, o: Item) -> boolean:
         return (
@@ -12,8 +13,5 @@ class Item:
                 self.value == self.value
          )
 
-    def weight_value_ratio(self) -> double:
-        return float(self.value) / float(self.weight)
-
     def __str__(self):
-        return f"weight : {self.weight} value : {self.value} ratio : {self.weight_value_ratio()}"
+        return f"weight : {self.weight} | value : {self.value} | ratio : {self.ratio}"
