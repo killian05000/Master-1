@@ -32,11 +32,7 @@ public class Mandelbrot extends Thread {
           }
         }
 
-        for(int x=0; x<4; x++)
-        {
-          T[x].join();
-          image.show();
-        }
+        image.show();
 
         // for (int i = 0; i < taille; i++) {
         //     for (int j = 0; j < taille; j++) {
@@ -99,7 +95,7 @@ public class Mandelbrot extends Thread {
           for (int j = start_j; j < end_j; j++) {
               colorierPixel(i,j) ;
           }
-          //image.show();         // Pour visualiser l'évolution de l'image
+          synchronized(image){image.show();}         // Pour visualiser l'évolution de l'image
       }
       System.out.println("Thread "+ start_i + "," + start_j + " / " + (start_i+taille/2) + "," + (start_j+taille/2) + " done");
     }
