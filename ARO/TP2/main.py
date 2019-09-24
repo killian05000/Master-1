@@ -13,9 +13,18 @@ if (len(sys.argv) > 1):
 bag_size, item_list = parser(filename)
 item_list.sort(key=lambda x: x.ratio, reverse=True)
 thief = Thief(Bag(bag_size), item_list)
+
 '''
 for i in item_list:
     print(i)
+
+item_list = item_list[1:]
+
+
+for i in item_list:
+    print(i)
+
+exit(1)
 '''
 
 ################## Naive sorting ##################
@@ -30,3 +39,9 @@ print("-------------------------- Greedy sorting --------------------------")
 thief.greedy_fill()
 print("-------------------------- Greedy sorting --------------------------\n")
 ##################  Greedy sorting ##################
+
+##################  Branch and bound sorting ##################
+print("-------------------------- Branch and bound sorting --------------------------")
+thief.branch_and_bound_fill()
+print("-------------------------- Branch and bound sorting --------------------------\n")
+##################  Branch and bound sorting ##################
