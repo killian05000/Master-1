@@ -24,11 +24,20 @@ class Thief:
                 break
         print(self.bag)
 
+    def greedy_fill2(self, capacity: int, item_list: List[Item]):
+        self.bag.clear()
+        for i in item_list:
+            self.bag.add_and_cut(i)
+            if self.bag.weight >= capacity :
+                break
+        return self.bag.value
+
     def branch_and_bound_fill(self):
         self.bag.clear()
         taken_items = []
         opt, taken_items = self.branch_and_bound(self.item_list, self.bag.size, taken_items)
         print("OPT", opt)
+        self.bag.clear()
         for i in taken_items:
             self.bag.add(i)
         print(self.bag)
@@ -40,8 +49,8 @@ class Thief:
         item = item_list[0]
         item_list = item_list[1:]
 
-        #if(greedy_fill( de branch and bound)) > que valeur
-        #    return
+        if(self.greedy_fill2(capacity, item_list) + sum(i.value for i in taken_items)) <= valeurMax:
+            return sum(i.value for i in taken_items), taken_items
 
         # If we got a too heavy object (capacity - item.weight < 0), we idon't take it
         sum1=0
