@@ -1,6 +1,7 @@
 // -*- coding: utf-8 -*-
 
 import java.awt.Color;
+import java.util.*;
 
 public class Mandelbrot extends Thread {
     final static int taille = 500 ;   // nombre de pixels par ligne et par colonne
@@ -8,31 +9,29 @@ public class Mandelbrot extends Thread {
     // Il y a donc taille*taille pixels blancs ou gris à déterminer
     final static int max = 30_000 ;
     // C'est le nombre maximum d'itérations pour déterminer la couleur d'un pixel
-    int start_i;
-    int start_j;
-    int end_i;
-    int end_j;
+
+    int start_y;
+    int end_y;
 
     public static void main(String[] args) throws InterruptedException  {
         final long début = System.nanoTime() ;
 
+        Square s = new Square(1,1,1,1);
+        Queue<Square> q = new PriorityQueue<Square>();
         Mandelbrot[] T = new Mandelbrot[4];
-        int i = 0;
-        int j = 0;
-        for(int x=0; x<4; x++)
+        for(int i=0; i<T.length; i++)
         {
-          T[x] = new Mandelbrot(i, j, i+taille/2, j+taille/2);
-          System.out.println("Thred launched on " + i + "," + j + " / " + (i+taille/2) + "," + (j+taille/2));
-          T[x].start();
-          i+=taille/2;
-          if(i == taille)
-          {
-            i=0;
-            j+=taille/2;
-          }
+          T[i] = new Mandelbrot(i*taille/T.length, (i+1)*taille/T.length);
+          System.out.println("Thred launched on [" + i*taille/T.length + "," + (i+1)*taille/T.length + "]");
+          T[i].start();
         }
 
         image.show();
+
+        for(int x=0; x<T.length; x++)
+        {
+          T[x].join();
+        }
 
         // for (int i = 0; i < taille; i++) {
         //     for (int j = 0; j < taille; j++) {
@@ -41,10 +40,14 @@ public class Mandelbrot extends Thread {
         //     image.show();         // Pour visualiser l'évolution de l'image
         // }
 
-        final long fin = System.nanoTime() ;
-        final long durée = (fin - début) / 1_000_000 ;
+        final long durée = (System.nanoTime() - début) / 1_000_000 ;
         System.out.println("Durée = " + (double) durée / 1000 + " s.") ;
-        image.show() ;
+        //image.show() ;
+    }
+
+    public Queue<Square> splitGrid(int nbSquares)
+    {
+
     }
 
     // La fonction colorierPixel(i,j) colorie le pixel (i,j) de l'image en gris ou blanc
@@ -81,23 +84,25 @@ public class Mandelbrot extends Thread {
         return true ; // Le point (a,b) est gris
     }
 
-    public Mandelbrot(int start_i, int start_j, int end_i, int end_j)
+    public Mandelbrot(int start_y, int end_y)
     {
-      this.start_i = start_i;
-      this.start_j = start_j;
-      this.end_i = end_i;
-      this.end_j = end_j;
+      this.start_y = start_y;
+      this.end_y = end_y;
     }
 
     public void run()
     {
-      for (int i = start_i; i < end_i; i++) {
-          for (int j = start_j; j < end_j; j++) {
-              colorierPixel(i,j) ;
+      final long début = System.nanoTime() ;
+      System.out.println(start_y + "->" + end_y + "/" + 0 + "->" + taille);
+      for (int x = 0; x < taille; x++) {
+          for (int y = start_y; y < end_y; y++) {
+              colorierPixel(x,y) ;
           }
           synchronized(image){image.show();}         // Pour visualiser l'évolution de l'image
       }
-      System.out.println("Thread "+ start_i + "," + start_j + " / " + (start_i+taille/2) + "," + (start_j+taille/2) + " done");
+
+      final long durée = (System.nanoTime() - début) / 1_000_000 ;
+      System.out.println("DONE : Thread ["+ start_y + "," + end_y + "] --> Durée = " + (double) durée / 1000 + " s." );
     }
 }
 
