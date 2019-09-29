@@ -7,6 +7,8 @@ class Thief:
     def __init__(self, bag: Bag, item_list: List[Item]):
         self.bag = bag
         self.item_list = item_list
+        self.valeurMax = 0
+        self.count = 0
 
     def naive_fill(self):
         self.bag.clear()
@@ -49,8 +51,14 @@ class Thief:
         item = item_list[0]
         item_list = item_list[1:]
 
-        if(self.greedy_fill2(capacity, item_list) + sum(i.value for i in taken_items)) <= valeurMax:
-            return sum(i.value for i in taken_items), taken_items
+        if(self.valeurMax < sum(i.value for i in taken_items)):
+            self.valeurMax = sum(i.value for i in taken_items)
+
+        if(sum(i.value for i in taken_items) + self.greedy_fill2(capacity, item_list) ) <= self.valeurMax:
+            self.count += 1
+            print(self.valeurMax," / ", self.count, "branches coupes")
+            return 0, taken_items
+
 
         # If we got a too heavy object (capacity - item.weight < 0), we idon't take it
         sum1=0
