@@ -92,12 +92,19 @@ public class Mandelbrot extends Thread {
       //System.out.println(start_y + "->" + end_y + "/" + 0 + "->" + taille);
       while(lignNb<taille)
       {
-        for (int x = 0; x < taille; x++) {
-            colorierPixel(x,lignNb) ;
-            synchronized(image){image.show();} // Pour visualiser l'évolution de l'image
+        int tmpLignNb=0;
+        synchronized(this)
+        {
+          tmpLignNb = lignNb;
+          lignNb++;
         }
-        System.out.println("LIGN " + lignNb +" DONE : " + threadNumber);
-        synchronized(this){lignNb++;}
+        for (int x = 0; x < taille; x++)
+        {
+            colorierPixel(x,tmpLignNb);
+            image.show(); // Pour visualiser l'évolution de l'image
+        }
+        System.out.println("LIGN " + tmpLignNb +" DONE : " + threadNumber);
+
       }
 
 
