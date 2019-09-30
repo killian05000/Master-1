@@ -48,18 +48,17 @@ class Thief:
     def branch_and_bound(self, item_list: List[Item], capacity: int, taken_items: List[Item]):
         tmpSum = sum(i.value for i in taken_items)
         if(len(item_list) == 0):
+            if(self.valeurMax < tmpSum):
+                self.valeurMax = tmpSum
             return tmpSum, taken_items
 
         item = item_list[0]
         item_list = item_list[1:]
 
-        if(self.valeurMax < tmpSum):
-            self.valeurMax = tmpSum
-
-        if(tmpSum + self.greedy_fill_bab(capacity, item_list) ) <= self.valeurMax:
+        if(tmpSum + self.greedy_fill_bab(capacity, item_list)) <= self.valeurMax:
             self.count += 1
-            print("Vmax : ", self.valeurMax, " | ", self.count, "branches coupes / ", self.nbPossibilities)
-            return 0, taken_items
+            #print("Vmax : ", self.valeurMax, " | ", self.count, "branches trimmed / ", self.nbPossibilities)
+            return 0, []
 
 
         # If we got a too heavy object (capacity - item.weight < 0), we idon't take it
