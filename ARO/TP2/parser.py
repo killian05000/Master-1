@@ -2,7 +2,7 @@ from item import Item
 
 def parser(file_name):
     try:
-        line_number = 1
+        line_number = 0
         with open(file_name, 'r') as filehandler:
             bag_size = filehandler.readline()
             item_list = []
