@@ -27,7 +27,7 @@ class Thief:
                 break
         print(self.bag)
 
-    def greedy_fill2(self, capacity: int, item_list: List[Item]):
+    def greedy_fill_bab(self, capacity: int, item_list: List[Item]):
         self.bag.clear()
         for i in item_list:
             self.bag.add_and_cut(i)
@@ -56,7 +56,7 @@ class Thief:
         if(self.valeurMax < tmpSum):
             self.valeurMax = tmpSum
 
-        if(tmpSum + self.greedy_fill2(capacity, item_list) ) <= self.valeurMax:
+        if(tmpSum + self.greedy_fill_bab(capacity, item_list) ) <= self.valeurMax:
             self.count += 1
             print("Vmax : ", self.valeurMax, " | ", self.count, "branches coupes / ", self.nbPossibilities)
             return 0, taken_items
