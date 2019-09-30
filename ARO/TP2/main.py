@@ -1,5 +1,6 @@
 import sys
 import logging
+import time
 from thief import Thief
 from item import Item
 from bag import Bag
@@ -17,6 +18,8 @@ thief = Thief(Bag(bag_size), item_list)
 '''
 for i in item_list:
     print(i)
+
+exit(1)
 
 item_list = item_list[1:]
 
@@ -42,6 +45,8 @@ print("-------------------------- Greedy sorting --------------------------\n")
 
 ##################  Branch and bound sorting ##################
 print("-------------------------- Branch and bound sorting --------------------------")
+start_time = time.time()
 thief.branch_and_bound_fill()
+print("Execution time = ", int((time.time() - start_time)*1000)/1000, " s.")
 print("-------------------------- Branch and bound sorting --------------------------\n")
 ##################  Branch and bound sorting ##################
