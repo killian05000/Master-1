@@ -12,7 +12,7 @@ public class Mandelbrot extends Thread {
 
     int start_y;
     int end_y;
-    public volatile int lignNb=0;
+    static volatile int lignNb=0;
     int threadNumber;
 
     public static void main(String[] args) throws InterruptedException  {
@@ -21,6 +21,7 @@ public class Mandelbrot extends Thread {
         Mandelbrot[] T = new Mandelbrot[4];
         for(int i=0; i<T.length; i++)
         {
+          System.out.println(i*taille/T.length + " / " + (i+1)*taille/T.length);
           T[i] = new Mandelbrot(i*taille/T.length, (i+1)*taille/T.length, i);
           //System.out.println("Thred launched on [" + i*taille/T.length + "," + (i+1)*taille/T.length + "]");
           T[i].start();
@@ -33,15 +34,8 @@ public class Mandelbrot extends Thread {
           T[x].join();
         }
 
-        // for (int i = 0; i < taille; i++) {
-        //     for (int j = 0; j < taille; j++) {
-        //         colorierPixel(i,j) ;
-        //     }
-        //     image.show();         // Pour visualiser l'évolution de l'image
-        // }
-
         final long durée = (System.nanoTime() - début) / 1_000_000 ;
-        System.out.println("Durée = " + (double) durée / 1000 + " s.") ;
+        System.out.println("Program final execution time = " + (double) durée / 1000 + " s.") ;
         image.show() ;
     }
 
@@ -88,12 +82,23 @@ public class Mandelbrot extends Thread {
 
     public void run()
     {
-      //final long début = System.nanoTime() ;
+      final long début = System.nanoTime() ;
       //System.out.println(start_y + "->" + end_y + "/" + 0 + "->" + taille);
+
+      lignToLign();
+      //bigParts();
+
+      final long durée = (System.nanoTime() - début) / 1_000_000 ;
+      System.out.println("Thread " + this.threadNumber + " : Function final execution time = " + (double) durée / 1000 + " s." );
+      //System.out.println("DONE : Thread ["+ start_y + "," + end_y + "] --> Durée = " + (double) durée / 1000 + " s." );
+    }
+
+    public void lignToLign()
+    {
       while(lignNb<taille)
       {
         int tmpLignNb=0;
-        synchronized(this)
+        synchronized(this.getClass())
         {
           tmpLignNb = lignNb;
           lignNb++;
@@ -101,32 +106,24 @@ public class Mandelbrot extends Thread {
         for (int x = 0; x < taille; x++)
         {
             colorierPixel(x,tmpLignNb);
-            image.show(); // Pour visualiser l'évolution de l'image
+            synchronized(image){image.show();} // Pour visualiser l'évolution de l'image
         }
         System.out.println("LIGN " + tmpLignNb +" DONE : " + threadNumber);
-
       }
-
-
-
-      //final long durée = (System.nanoTime() - début) / 1_000_000 ;
-      //System.out.println("DONE : Thread ["+ start_y + "," + end_y + "] --> Durée = " + (double) durée / 1000 + " s." );
     }
 
-    // public void run()
-    // {
-    //   final long début = System.nanoTime() ;
-    //   System.out.println(start_y + "->" + end_y + "/" + 0 + "->" + taille);
-    //   for (int x = 0; x < taille; x++) {
-    //       for (int y = start_y; y < end_y; y++) {
-    //           colorierPixel(x,y) ;
-    //       }
-    //       synchronized(image){image.show();}         // Pour visualiser l'évolution de l'image
-    //   }
-    //
-    //   final long durée = (System.nanoTime() - début) / 1_000_000 ;
-    //   System.out.println("DONE : Thread ["+ start_y + "," + end_y + "] --> Durée = " + (double) durée / 1000 + " s." );
-    // }
+    public void bigParts()
+    {
+      System.out.println(start_y + "->" + end_y + "/" + 0 + "->" + taille);
+      for (int x = 0; x < taille; x++)
+      {
+          for (int y = start_y; y < end_y; y++)
+          {
+              colorierPixel(x,y) ;
+          }
+          synchronized(image){image.show();}         // Pour visualiser l'évolution de l'image
+      }
+    }
 }
 
 
