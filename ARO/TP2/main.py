@@ -19,6 +19,19 @@ thief = Thief(Bag(bag_size), item_list)
 for i in item_list:
     print(i)
 
+print(len(item_list))
+
+#item_list.pop(0)
+#item_list = item_list[1:]
+#del item_list[0]
+item_list.remove(item_list[0])
+print('BBBBBBBBBBBBBBB')
+
+for i in item_list:
+    print(i)
+
+print(len(item_list))
+
 exit(1)
 
 item_list = item_list[1:]
