@@ -10,24 +10,31 @@ public class SeptNains {
         for(int i = 0; i < nbNains; i++) nain[i] = new Nain(nom[i]);
         for(int i = 0; i < nbNains; i++) nain[i].start();
         for(int i = 0; i < nbNains; i++) {
-            try { nain[i].join(); } catch (InterruptedException e) {e.printStackTrace();}	
+            try { nain[i].join(); } catch (InterruptedException e) {e.printStackTrace();}
         }
-        // System.out.println("C'est fini.");        
+        // System.out.println("C'est fini.");
     }
-}    
+}
 
 class BlancheNeige {
     private volatile boolean libre = true;        // Initialement, Blanche-Neige est libre.
+    public ArrayList<String> waitingQueue = new ArrayList<String>();
     public synchronized void requérir () {
         System.out.println("\t" + Thread.currentThread().getName()
                            + " veut un accès exclusif à la ressource");
+
+        waitingQueue.add(Thread.currentThread().getName());
     }
 
     public synchronized void accéder () {
-        while( ! libre ) { // Le nain s'endort sur l'objet bn
-            try { wait(); } catch (InterruptedException e) {e.printStackTrace();}
+        while(!waitingQueue.get(0).equals(Thread.currentThread().getName())) //The dwarf fell asleep
+        {
+          try { wait(); } catch (InterruptedException e) {e.printStackTrace();}
         }
-        libre = false;
+        // while( ! libre ) { // Le nain s'endort sur l'objet bn
+        //     try { wait(); } catch (InterruptedException e) {e.printStackTrace();}
+        // }
+        //libre = false;
         System.out.println("\t\t" + Thread.currentThread().getName()
                            + " va accéder à la ressource.");
     }
@@ -35,7 +42,8 @@ class BlancheNeige {
     public synchronized void relâcher () {
         System.out.println("\t\t\t" + Thread.currentThread().getName()
                            + " relâche la ressource.");
-        libre = true;
+        //libre = true;
+        waitingQueue.remove(Thread.currentThread().getName());
         notifyAll();
     }
 }
@@ -54,7 +62,7 @@ class Nain extends Thread {
             bn.relâcher();
         }
         // System.out.println(getName() + " a terminé!");
-    }	
+    }
 }
 
 /*
