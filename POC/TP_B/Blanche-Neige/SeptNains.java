@@ -31,10 +31,7 @@ class BlancheNeige {
         {
           try { wait(); } catch (InterruptedException e) {e.printStackTrace();}
         }
-        // while( ! libre ) { // Le nain s'endort sur l'objet bn
-        //     try { wait(); } catch (InterruptedException e) {e.printStackTrace();}
-        // }
-        //libre = false;
+
         System.out.println("\t\t" + Thread.currentThread().getName()
                            + " va accéder à la ressource.");
     }
@@ -42,7 +39,7 @@ class BlancheNeige {
     public synchronized void relâcher () {
         System.out.println("\t\t\t" + Thread.currentThread().getName()
                            + " relâche la ressource.");
-        //libre = true;
+
         waitingQueue.remove(Thread.currentThread().getName());
         notifyAll();
     }
