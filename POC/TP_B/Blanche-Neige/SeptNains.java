@@ -1,6 +1,7 @@
 // -*- coding: utf-8 -*-
 
 import java.util.ArrayList;
+import static java.lang.Thread.sleep;
 
 public class SeptNains {
     public static void main(String[] args) {
@@ -9,10 +10,20 @@ public class SeptNains {
         Nain nain [] = new Nain [nbNains];
         for(int i = 0; i < nbNains; i++) nain[i] = new Nain(nom[i]);
         for(int i = 0; i < nbNains; i++) nain[i].start();
+
+        try {sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+
+        System.out.println("------------------------------------------------------------");
+
+        for(int i = 0; i < nbNains; i++)
+        {
+          System.out.println(nain[i].getName() + " divorce et part rejoindre la sorcière");
+          nain[i].interrupt();
+        }
         for(int i = 0; i < nbNains; i++) {
             try { nain[i].join(); } catch (InterruptedException e) {e.printStackTrace();}
         }
-        // System.out.println("C'est fini.");
+        System.out.println("C'est fini.");
     }
 }
 
@@ -29,7 +40,7 @@ class BlancheNeige {
     public synchronized void accéder () {
         while(!waitingQueue.get(0).equals(Thread.currentThread().getName())) //The dwarf fell asleep
         {
-          try { wait(); } catch (InterruptedException e) {e.printStackTrace();}
+          try { wait(); } catch (InterruptedException e) { this.burnOut(); }
         }
 
         System.out.println("\t\t" + Thread.currentThread().getName()
@@ -55,10 +66,16 @@ class Nain extends Thread {
             bn.requérir();
             bn.accéder();
             System.out.println("\t\t" + getName() + " possède le privilège d'accès à Blanche-Neige.");
-            try {sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+            try {sleep(1000);} catch (InterruptedException e) { burnOut(); }
             bn.relâcher();
         }
         // System.out.println(getName() + " a terminé!");
+    }
+
+    public void burnOut()
+    {
+      System.out.println(Thread.currentThread().getName() + "divorce et part rejoindre la sorcière");
+      return;
     }
 }
 
