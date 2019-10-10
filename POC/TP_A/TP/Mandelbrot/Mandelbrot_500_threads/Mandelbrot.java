@@ -81,7 +81,7 @@ public class Mandelbrot extends Thread {
       }
 
       final long durée = (System.nanoTime() - début) / 1_000_000 ;
-      System.out.println("Line "+ this.lignID + " execution time = " + (double) durée / 1000 + " s." );
+      //System.out.println("Line "+ this.lignID + " execution time = " + (double) durée / 1000 + " s." );
     }
 }
 
