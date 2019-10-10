@@ -7,7 +7,7 @@ public class Mandelbrot extends Thread {
     final static int taille = 500 ;   // nombre de pixels par ligne et par colonne
     final static Picture image = new Picture(taille, taille) ;
     // Il y a donc taille*taille pixels blancs ou gris à déterminer
-    final static int max = 30_000 ;
+    final static int max = 80_000 ;
     // C'est le nombre maximum d'itérations pour déterminer la couleur d'un pixel
 
     int start_y;
@@ -26,8 +26,6 @@ public class Mandelbrot extends Thread {
           //System.out.println("Thred launched on [" + i*taille/T.length + "," + (i+1)*taille/T.length + "]");
           T[i].start();
         }
-
-        image.show();
 
         for(int x=0; x<T.length; x++)
         {
@@ -83,14 +81,12 @@ public class Mandelbrot extends Thread {
     public void run()
     {
       final long début = System.nanoTime() ;
-      //System.out.println(start_y + "->" + end_y + "/" + 0 + "->" + taille);
 
       lignToLign();
-      //bigParts();
+      //singleTask();
 
       final long durée = (System.nanoTime() - début) / 1_000_000 ;
       System.out.println("Thread " + this.threadNumber + " : Function final execution time = " + (double) durée / 1000 + " s." );
-      //System.out.println("DONE : Thread ["+ start_y + "," + end_y + "] --> Durée = " + (double) durée / 1000 + " s." );
     }
 
     public void lignToLign()
@@ -112,7 +108,7 @@ public class Mandelbrot extends Thread {
       }
     }
 
-    public void bigParts()
+    public void singleTask()
     {
       System.out.println(start_y + "->" + end_y + "/" + 0 + "->" + taille);
       for (int x = 0; x < taille; x++)
