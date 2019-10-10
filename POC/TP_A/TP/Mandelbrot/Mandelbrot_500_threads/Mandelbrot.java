@@ -17,7 +17,6 @@ public class Mandelbrot extends Thread {
         Mandelbrot[] T = new Mandelbrot[size]; //size = 500
         for(int i=0; i<size; i++)
         {
-          System.out.println();
           T[i] = new Mandelbrot(i);
           T[i].start();
         }
