@@ -9,17 +9,32 @@ public class Mandelbrot extends Thread {
     // Il y a donc taille*taille pixels blancs ou gris à déterminer
     final static int max = 80_000 ;
     // C'est le nombre maximum d'itérations pour déterminer la couleur d'un pixel
-    int lignID;
+    int x;
+    int y;
 
     public static void main(String[] args) throws InterruptedException  {
         final long début = System.nanoTime() ;
 
-        Mandelbrot[] T = new Mandelbrot[size]; //size = 500
-        for(int i=0; i<size; i++)
+        Mandelbrot[] T = new Mandelbrot[size*size]; //size = 500
+        int i = 0;
+        for(int y=0; y<size; y++)
         {
-          System.out.println();
-          T[i] = new Mandelbrot(i);
-          T[i].start();
+          for(int x=0; x<size; x++)
+          {
+            T[i] = new Mandelbrot(x,y);
+            //T[i].start();
+            i++;
+          }
+        }
+
+        i=0;
+        for(int y=0; y<size; y++)
+        {
+          for(int x=0; x<size; x++)
+          {
+            T[i].start();
+            i++;
+          }
         }
 
         for(int x=0; x<T.length; x++)
@@ -66,23 +81,21 @@ public class Mandelbrot extends Thread {
         return true ; // Le point (a,b) est gris
     }
 
-    public Mandelbrot(int lignID)
+    public Mandelbrot(int x, int y)
     {
-      this.lignID = lignID;
+      this.x = x;
+      this.y = y;
     }
 
     public void run()
     {
       final long début = System.nanoTime() ;
 
-      for (int x = 0; x < size; x++)
-      {
-          colorierPixel(x,this.lignID);
-          synchronized(image){image.show();}         // Pour visualiser l'évolution de l'image
-      }
+      colorierPixel(x, y);
+      synchronized(image){image.show();}         // Pour visualiser l'évolution de l'image
 
       final long durée = (System.nanoTime() - début) / 1_000_000 ;
-      System.out.println("Line "+ this.lignID + " execution time = " + (double) durée / 1000 + " s." );
+      //System.out.println("Pixel("+ x + "," + y + ") execution time = " + (double) durée / 1000 + " s.");
     }
 }
 
