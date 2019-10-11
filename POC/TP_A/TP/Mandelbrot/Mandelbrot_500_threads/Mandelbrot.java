@@ -77,8 +77,8 @@ public class Mandelbrot extends Thread {
       for (int x = 0; x < size; x++)
       {
           colorierPixel(x,this.lignID);
-          synchronized(image){image.show();}         // Pour visualiser l'évolution de l'image
       }
+      synchronized(image){image.show();}         // Pour visualiser l'évolution de l'image
 
       final long durée = (System.nanoTime() - début) / 1_000_000 ;
       //System.out.println("Line "+ this.lignID + " execution time = " + (double) durée / 1000 + " s." );
