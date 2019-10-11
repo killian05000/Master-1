@@ -6,9 +6,9 @@ public class Mandelbrot {
     final static int taille = 500 ;   // nombre de pixels par ligne et par colonne
     final static Picture image = new Picture(taille, taille) ;
     // Il y a donc taille*taille pixels blancs ou gris à déterminer
-    final static int max = 100_000 ; 
+    final static int max = 88_000 ;
     // C'est le nombre maximum d'itérations pour déterminer la couleur d'un pixel
-    
+
     public static void main(String[] args)  {
         final long début = System.nanoTime() ;
 
@@ -16,14 +16,14 @@ public class Mandelbrot {
             for (int j = 0; j < taille; j++) {
                 colorierPixel(i,j) ;
             }
-            // image.show();         // Pour visualiser l'évolution de l'image
+            image.show();         // Pour visualiser l'évolution de l'image
         }
 
         final long fin = System.nanoTime() ;
         final long durée = (fin - début) / 1_000_000 ;
         System.out.println("Durée = " + (double) durée / 1000 + " s.") ;
         image.show() ;
-    }    
+    }
 
     // La fonction colorierPixel(i,j) colorie le pixel (i,j) de l'image en gris ou blanc
     public static void colorierPixel(int i, int j) {
@@ -42,7 +42,7 @@ public class Mandelbrot {
         double b = yc - region/2 + region*j/taille ;
         // Le pixel (i,j) correspond au point (a,b)
         if (mandelbrot(a, b, max)) image.set(i, j, gris) ;
-        else image.set(i, j, blanc) ; 
+        else image.set(i, j, blanc) ;
     }
 
     // La fonction mandelbrot(a, b, max) détermine si le point (a,b) est gris
@@ -61,14 +61,14 @@ public class Mandelbrot {
 }
 
 
-/* 
+/*
    $ make
-   javac *.java 
-   jar cvmf MANIFEST.MF Mandelbrot.jar *.class 
+   javac *.java
+   jar cvmf MANIFEST.MF Mandelbrot.jar *.class
    manifeste ajouté
    ajout : Mandelbrot.class(entrée = 1697) (sortie = 1066)(compression : 37 %)
    ajout : Picture.class(entrée = 5689) (sortie = 3039)(compression : 46 %)
-   rm *.class 
+   rm *.class
    $ java -version
    java version "11.0.3" 2019-04-16 LTS
    Java(TM) SE Runtime Environment 18.9 (build 11.0.3+12-LTS)
