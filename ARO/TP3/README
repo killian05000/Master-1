@@ -1,0 +1,7 @@
+You can launch the program using the following syntax :
+g++ test.cpp -o test -lglpk
+
+usefull ressources :
+- https://ametice.univ-amu.fr/pluginfile.php/3187296/mod_resource/content/1/cutting-stock.pdf (tp)
+- https://lipn.univ-paris13.fr/~borne/Docs/cm_ol.pdf (explanations of some glpk commandes p10)
+- http://www.chiark.greenend.org.uk/doc/glpk-doc/glpk.pdf
