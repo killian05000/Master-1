@@ -7,7 +7,7 @@ public class Mandelbrot extends Thread {
     final static int size = 500 ;   // nombre de pixels par ligne et par colonne
     final static Picture image = new Picture(size, size) ;
     // Il y a donc taille*taille pixels blancs ou gris à déterminer
-    final static int max = 80_000 ;
+    final static int max = 88_000 ;
     // C'est le nombre maximum d'itérations pour déterminer la couleur d'un pixel
     int lignID;
 
