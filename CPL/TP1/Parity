@@ -1,0 +1,19 @@
+; Parity problem solver
+
+; Machine starts in state 0.
+
+; State 0: read the leftmost symbol
+0 1 * r 1
+0 0 * r 0 
+0 _ * * halt-accept
+
+; State 1
+1 0 * r 1
+1 1 * r 2
+1 _ * * halt-reject
+
+; State 2
+2 0 * r 2
+2 1 * r 1
+2 _ * * halt-accept
+
