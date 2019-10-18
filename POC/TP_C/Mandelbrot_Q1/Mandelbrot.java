@@ -1,5 +1,7 @@
 // -*- coding: utf-8 -*-
-
+import java.util.concurrent.ExecutorCompletionService;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.awt.Color;
 
 public class Mandelbrot {
@@ -38,11 +40,17 @@ public class Mandelbrot {
 
         DrawLine[] T = new DrawLine[4];
 
+        // Création du réservoir formé de nbThreads esclaves
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+        CompletionService<Long> ecs = new ExecutorCompletionService<Long>(executor);
+
         for (int i = 0; i < taille; i++) {
-            T[i%4] = new DrawLine(i);
-            T[i%4].run();
+          ecs.submit(new DrawLine(i));
+            // T[i%4] = new DrawLine(i);
+            // T[i%4].run();
             //image.show();         // Pour visualiser l'évolution de l'image
         }
+        executor.shutdown();
 
         final long fin = System.nanoTime() ;
         final long durée = (fin - début) / 1_000_000 ;
