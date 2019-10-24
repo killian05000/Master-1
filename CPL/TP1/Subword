@@ -1,0 +1,56 @@
+; 0
+0 a A r stepA
+0 A * r truc
+
+; truc
+truc A * r truc
+truc a * * 0
+
+; stepA
+stepA a * r stepA
+stepA b * r stepA
+stepA # * r nextA
+
+; nextA
+nextA x * r nextA
+nextA b x r nextA
+nextA a v l rewind
+nextA v * r victoryA
+
+; victoryA
+victoryA _ * * halt_rejeter
+victoryA a v l rewind
+victoryA b x l cancel
+victoryA v * r victoryA
+
+; rewind
+rewind x * l rewind
+rewind v * l rewind
+rewind # * l test
+
+; rewind2
+rewind2 A * l rewind2
+rewind2 B * l rewind2
+rewind2 a * l rewind2
+rewind2 b * l rewind2
+rewind2 _ * r 0
+
+; test
+test A * * halt_accept
+test B * * halt_accept
+test a * l rewind2
+test b * l rewind2
+
+; cancel
+cancel v x l cancel
+cancel x * l cancel
+cancel # * l cancel2
+
+; cancel2
+cancel2 A a l cancel2
+cancel2 B a l cancel2
+cancel2 a * l cancel2
+cancel2 b * l cancel2
+cancel2 _ * r 0
+
+; add b
