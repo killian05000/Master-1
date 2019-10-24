@@ -1,0 +1,6 @@
+; Turing machine which won't stop
+
+; Machine starts in state 0.
+
+; State 0: infinite loop
+0 * * * 0
