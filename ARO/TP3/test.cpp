@@ -6,6 +6,39 @@
 
 int main(void)
 {
+  glp_prob *lp;
+  /* declare variables */
+  glp_prob *lp;
+  int ia[1+1000], ja[1+1000];
+  double ar[1+1000], z, x1, x2;
+  /* create problem */
+  lp = glp_create_prob();
+  glp_set_prob_name(lp, "short");
+  glp_set_obj_dir(lp, GLP_MAX);
+  glp_add_rows(lp, 4)
+  glp_add_cols(lp, 4)
+  // constraints
+  glp_set_row_name(lp, 1, "c1");
+  glp_set_row_name(lp, 2, "c2");
+  glp_set_row_name(lp, 3, "c3");
+  glp_set_row_name(lp, 4, "c4");
+  // variables
+  glp_set_col_name(lp, 1, "j1");
+  glp_set_col_name(lp, 2, "j2");
+  glp_set_col_name(lp, 3, "j3");
+  glp_set_col_name(lp, 4, "j4");
+
+  glp_set_obj_coef(lp, 1, 48.5);
+  glp_set_obj_coef(lp, 1, 48.5);
+  glp_set_obj_coef(lp, 1, 48.5);
+  glp_set_obj_coef(lp, 1, 48.5);
+
+
+
+
+
+
+
   /* declare variables */
   glp_prob *lp;
   int ia[1+1000], ja[1+1000];

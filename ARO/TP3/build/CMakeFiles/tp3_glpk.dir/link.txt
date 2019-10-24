@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/tp3_glpk.dir/main.cpp.o  -o tp3_glpk -lglpk 
