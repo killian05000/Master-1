@@ -28,21 +28,20 @@ next_a a x l rewind
 next_a b * * halt-reject
 next_a # * * halt-reject
 next_a _ * * halt-reject
-next_a B * r next_a
 next_a x * r next_a
 
 
 ; State next_b
 next_b a * * halt-reject
-next_b b B * rewind
+next_b b x * rewind
 next_b # * * halt-reject
 next_b _ * * halt-reject
-next_b B * r next_b
 next_b x * r next_b
 
 ; State rewind
 rewind a * l rewind
 rewind b * l rewind
+rewind x * l rewind
 rewind # * l rewind
 rewind _ * * stop
 
@@ -51,9 +50,3 @@ stop _ * r 0
 stop a * * halt-reject
 stop b * * halt-reject
 stop # * * halt-reject
-
-
-
-
-
-
