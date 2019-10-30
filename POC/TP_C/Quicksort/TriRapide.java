@@ -3,8 +3,8 @@
 import java.util.Random ;
 
 public class TriRapide {
-    static final int taille = 1_000_000 ;                   // Longueur du tableau à trier
-    static final int [] tableau = new int[taille] ;         // Le tableau d'entiers à trier 
+    static final int taille = 41_000_000 ;                   // Longueur du tableau à trier
+    static final int [] tableau = new int[taille] ;         // Le tableau d'entiers à trier
     static final int borne = 10 * taille ;                  // Valeur maximale dans le tableau
 
     private static void echangerElements(int[] t, int m, int n) {
@@ -28,7 +28,7 @@ public class TriRapide {
 
     private static void trierRapidement(int[] t, int début, int fin) {
         if (début < fin) {                             // S'il y a un seul élément, il n'y a rien à faire!
-            int p = partitionner(t, début, fin) ;      
+            int p = partitionner(t, début, fin) ;
             trierRapidement(t, début, p-1) ;
             trierRapidement(t, p+1, fin) ;
         }
@@ -48,7 +48,7 @@ public class TriRapide {
     public static void main(String[] args) {
         Random alea = new Random() ;
         for (int i=0 ; i<taille ; i++) {                          // Remplissage aléatoire du tableau
-            tableau[i] = alea.nextInt(2*borne) - borne ;            
+            tableau[i] = alea.nextInt(2*borne) - borne ;
         }
         System.out.print("Tableau initial : ") ;
         afficher(tableau, 0, taille -1) ;                         // Affiche le tableau à trier
@@ -60,7 +60,7 @@ public class TriRapide {
 
         long finDuTri = System.nanoTime();
         long duréeDuTri = (finDuTri - débutDuTri) / 1_000_000 ;
-        System.out.print("Tableau trié : ") ; 
+        System.out.print("Tableau trié : ") ;
         afficher(tableau, 0, taille -1) ;                         // Affiche le tableau obtenu
         System.out.println("obtenu en " + duréeDuTri + " millisecondes.") ;
     }
