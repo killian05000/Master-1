@@ -1,0 +1,17 @@
+main
+{
+  for( i = 0; i < in.clauses[0].size; i++)
+  {
+    out.push = in.clauses[0][i], in.clauses[0][i], in.numvars+1;
+  }
+  p = 2;
+  for( i = 1; i < in.clauses.size; i++)
+  {
+    out.push = -in.numvars+p, in.clauses[i][1], in.numvars+p+1;
+    p++;
+  }
+  for( i = 0; i < in.clauses[0].size; i++)
+  {
+   out.push = in.clauses[numvars-1][i], in.clauses[numvars-1][1], -in.numvars+p-3;
+  }
+}

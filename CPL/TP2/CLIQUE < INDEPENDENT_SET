@@ -1,0 +1,14 @@
+main
+{
+  out.k = in.k;
+  for(i=0; i < in.adjacencymatrix.size; i++)
+  {
+      for(j=0; j < in.adjacencymatrix.size; j++)
+      {
+	if(in.adjacencymatrix[i][j] == 0)
+	{
+	  out.edges.push = i, j;
+	}  
+      }
+  }
+}
