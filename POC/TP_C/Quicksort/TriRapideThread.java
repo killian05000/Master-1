@@ -5,10 +5,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Random ;
+import java.util.Arrays;
 
 public class TriRapideThread {
     static final int taille = 41_000_000 ;                   // Longueur du tableau à trier
-    static final int [] tableau = new int[taille] ;         // Le tableau d'entiers à trier
+    static final int [] tableauSeq = new int[taille] ;         // Le tableau d'entiers à trier
+    static final int [] tableauPara = new int[taille] ;         // Le tableau d'entiers à trier
     static final int borne = 10 * taille ;                  // Valeur maximale dans le tableau
     static ExecutorService executor;
     static CompletionService<Void> ecs;
@@ -70,14 +72,14 @@ public class TriRapideThread {
 
       //System.out.println(t.length);
       int p = partitionner(t, début, fin) ;
+      int partSize = fin - début;
 
-      if(t.length > 1000 && t.length > taille/100) {
+      if(partSize > 1000 && partSize > taille/100) {
         ecs.submit(() -> _paralTrierRapidement(t, début, p-1), null);
         ecs.submit(() -> _paralTrierRapidement(t, p+1, fin), null);
         nbTasks.addAndGet(2);
       }
       else {
-        System.out.print("#");
         seqTrierRapidement(t, début, p-1) ;
         seqTrierRapidement(t, p+1, fin) ;
       }
@@ -99,22 +101,61 @@ public class TriRapideThread {
     public static void main(String[] args) {
         Random alea = new Random() ;
         for (int i=0 ; i<taille ; i++) {                          // Remplissage aléatoire du tableau
-            tableau[i] = alea.nextInt(2*borne) - borne ;
+            int tmp = alea.nextInt(2*borne) - borne ;
+            tableauSeq[i] = tmp;
+            tableauPara[i] = tmp;
         }
+
+        System.out.println(tableauSeq == tableauPara);
+
         System.out.print("Tableau initial : ") ;
-        afficher(tableau, 0, taille -1) ;                         // Affiche le tableau à trier
+        afficher(tableauSeq, 0, taille -1) ;                         // Affiche le tableau à trier
 
-        System.out.println("Démarrage du tri rapide.") ;
-        long débutDuTri = System.nanoTime();
+        //---------------Sequentiel--------------//
 
-        //seqTrierRapidement(tableau, 0, taille-1) ;                   // Tri du tableau
-        paralTrierRapidement(tableau, 0, taille-1);
+        System.out.println("Démarrage du tri rapide sequentiel.") ;
+        double débutSeq = System.nanoTime();
+        System.out.println(débutSeq);
 
-        long finDuTri = System.nanoTime();
-        long duréeDuTri = (finDuTri - débutDuTri) / 1_000_000 ;
+        seqTrierRapidement(tableauSeq, 0, taille-1) ;                   // Tri du tableau
+
+        double finSeq = System.nanoTime();
+        double duréeSeq = (finSeq - débutSeq) / 1_000_000 ;
         System.out.print("Tableau trié : ") ;
-        afficher(tableau, 0, taille -1) ;                         // Affiche le tableau obtenu
-        System.out.println("obtenu en " + duréeDuTri + " millisecondes.") ;
+        afficher(tableauSeq, 0, taille -1) ;                         // Affiche le tableau obtenu
+        System.out.println("obtenu en " + duréeSeq + " millisecondes.") ;
+
+        //---------------Parallèle--------------//
+
+        System.out.println("Démarrage du tri rapide parallèle.") ;
+        double débutPara= System.nanoTime();
+
+        paralTrierRapidement(tableauPara, 0, taille-1);
+
+        double finPara = System.nanoTime();
+        double duréePara = (finPara - débutPara) / 1_000_000 ;
+        System.out.print("Tableau trié : ") ;
+        afficher(tableauPara, 0, taille -1) ;                         // Affiche le tableau obtenu
+        System.out.println("obtenu en " + duréePara + " millisecondes.") ;
+
+        System.out.println(Arrays.equals(tableauSeq,tableauPara));
+
+        if(tableauSeq == tableauPara)
+        {
+          System.out.println("Les tableaux sont identiques");
+        }
+        else
+        {
+          System.out.println("Start testing !");
+          for (int i=0 ; i<taille ; i++) {                          // Remplissage aléatoire du tableau
+              if(tableauSeq[i] != tableauPara[i])
+                  System.out.println(i);
+          }
+          System.out.println("Done !");
+        }
+
+        System.out.println("Gain de temps : "+ (int)((duréeSeq/duréePara)*1000)/1000);
+
     }
 }
 
