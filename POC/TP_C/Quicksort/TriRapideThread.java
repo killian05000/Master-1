@@ -51,17 +51,19 @@ public class TriRapideThread {
       nbTasks.set(0);
       _paralTrierRapidement(t, début, fin);
 
+      int i = 0;
       while(nbTasks.decrementAndGet() > 0)
       {
         //System.out.println(nbTasks);
         try {
           ecs.take();
+          i++;
         } catch (InterruptedException e)
         {
           e.printStackTrace();
         }
       }
-
+      System.out.println(i + " tâches effectuées");
       executor.shutdown();
       ecs = null;
     }
@@ -106,16 +108,15 @@ public class TriRapideThread {
             tableauPara[i] = tmp;
         }
 
-        System.out.println(tableauSeq == tableauPara);
+        //System.out.println(tableauSeq == tableauPara);
 
         System.out.print("Tableau initial : ") ;
         afficher(tableauSeq, 0, taille -1) ;                         // Affiche le tableau à trier
 
         //---------------Sequentiel--------------//
-
+        System.out.println("\n----------------SEQ----------------");
         System.out.println("Démarrage du tri rapide sequentiel.") ;
         double débutSeq = System.nanoTime();
-        System.out.println(débutSeq);
 
         seqTrierRapidement(tableauSeq, 0, taille-1) ;                   // Tri du tableau
 
@@ -123,10 +124,10 @@ public class TriRapideThread {
         double duréeSeq = (finSeq - débutSeq) / 1_000_000 ;
         System.out.print("Tableau trié : ") ;
         afficher(tableauSeq, 0, taille -1) ;                         // Affiche le tableau obtenu
-        System.out.println("obtenu en " + duréeSeq + " millisecondes.") ;
+        System.out.println("obtenu en " + (int)duréeSeq + " millisecondes.") ;
 
         //---------------Parallèle--------------//
-
+        System.out.println("\n----------------PARA----------------");
         System.out.println("Démarrage du tri rapide parallèle.") ;
         double débutPara= System.nanoTime();
 
@@ -136,25 +137,41 @@ public class TriRapideThread {
         double duréePara = (finPara - débutPara) / 1_000_000 ;
         System.out.print("Tableau trié : ") ;
         afficher(tableauPara, 0, taille -1) ;                         // Affiche le tableau obtenu
-        System.out.println("obtenu en " + duréePara + " millisecondes.") ;
+        System.out.println("obtenu en " + (int)duréePara + " millisecondes.") ;
 
-        System.out.println(Arrays.equals(tableauSeq,tableauPara));
+        //System.out.println(Arrays.equals(tableauSeq,tableauPara));
 
-        if(tableauSeq == tableauPara)
-        {
-          System.out.println("Les tableaux sont identiques");
+        System.out.println("\n---------------RESULTS---------------");
+        int errors = 0;
+        for (int i=0 ; i<taille ; i++) {
+            if(tableauSeq[i] != tableauPara[i])
+                errors++;
         }
+        //System.out.println("Done !");
+
+        if(errors == 0)
+          System.out.println("Les tableaux sont identiques.");
         else
-        {
-          System.out.println("Start testing !");
-          for (int i=0 ; i<taille ; i++) {                          // Remplissage aléatoire du tableau
-              if(tableauSeq[i] != tableauPara[i])
-                  System.out.println(i);
-          }
-          System.out.println("Done !");
-        }
+          System.out.println("There is  "+ errors + " sorting errors.");
 
-        System.out.println("Gain de temps : "+ (int)((duréeSeq/duréePara)*1000)/1000);
+        // if(tableauSeq == tableauPara)
+        // {
+        //   System.out.println("Les tableaux sont identiques");
+        // }
+        // else
+        // {
+        //   int errors = 0;
+        //   //System.out.println("Start testing !");
+        //   for (int i=0 ; i<taille ; i++) {                          // Remplissage aléatoire du tableau
+        //       if(tableauSeq[i] != tableauPara[i])
+        //           errors++;
+        //   }
+        //   //System.out.println("Done !");
+        //   if(errors > 0)
+        //     System.out.println("There is  "+ errors + " sorting errors");
+        // }
+
+        System.out.println("La version parallèle est " + (double)((int)((duréeSeq/duréePara)*100))/100 + " fois plus rapide");
 
     }
 }
