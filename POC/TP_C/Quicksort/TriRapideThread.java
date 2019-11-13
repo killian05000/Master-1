@@ -52,12 +52,18 @@ public class TriRapideThread {
       _paralTrierRapidement(t, début, fin);
 
       int i = 0;
+      while(nbTasks.get()<100)
+      {
+        System.out.println(nbTasks);
+      }
+
       while(nbTasks.decrementAndGet() > 0)
       {
         //System.out.println(nbTasks);
         try {
           ecs.take();
           i++;
+          System.out.println(nbTasks);
         } catch (InterruptedException e)
         {
           e.printStackTrace();
@@ -70,7 +76,10 @@ public class TriRapideThread {
 
     private static void _paralTrierRapidement(int[] t, int début, int fin) {
       if (début >= fin)                             // S'il y a un seul élément, il n'y a rien à faire!
+      {
+        System.out.println("EXIT PARA");
         return;
+      }
 
       //System.out.println(t.length);
       int p = partitionner(t, début, fin) ;
@@ -107,6 +116,16 @@ public class TriRapideThread {
             tableauSeq[i] = tmp;
             tableauPara[i] = tmp;
         }
+
+        int err = 0;
+        for (int i=0 ; i<taille ; i++) {
+            if(tableauSeq[i] != tableauPara[i])
+                err++;
+        }
+        if(err == 0)
+          System.out.println("Good to go !");
+        else
+          System.out.println("Tables have different contenent !!!!");
 
         //System.out.println(tableauSeq == tableauPara);
 
@@ -152,7 +171,10 @@ public class TriRapideThread {
         if(errors == 0)
           System.out.println("Les tableaux sont identiques.");
         else
+        {
           System.out.println("There is  "+ errors + " sorting errors.");
+          System.out.println(nbTasks.get() + " tasks left");
+        }
 
         // if(tableauSeq == tableauPara)
         // {
