@@ -50,12 +50,13 @@ public class TriRapideThread {
       ecs = new ExecutorCompletionService<Void>(executor);
       nbTasks.set(0);
       _paralTrierRapidement(t, début, fin);
+      nbTasks.addAndGet(1);
 
       int i = 0;
-      while(nbTasks.get()<100)
-      {
-        System.out.println(nbTasks);
-      }
+      // while(nbTasks.get()<100)
+      // {
+      //   System.out.println(nbTasks);
+      // }
 
       while(nbTasks.decrementAndGet() > 0)
       {
@@ -63,7 +64,7 @@ public class TriRapideThread {
         try {
           ecs.take();
           i++;
-          System.out.println(nbTasks);
+          //System.out.println(nbTasks);
         } catch (InterruptedException e)
         {
           e.printStackTrace();
