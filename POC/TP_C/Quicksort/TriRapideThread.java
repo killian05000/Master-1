@@ -8,9 +8,9 @@ import java.util.Random ;
 import java.util.Arrays;
 
 public class TriRapideThread {
-    static final int taille = 41_000_000 ;                   // Longueur du tableau à trier
+    static final int taille = 95_000_000 ;                   // Longueur du tableau à trier
     static final int [] tableauSeq = new int[taille] ;         // Le tableau d'entiers à trier
-    static final int [] tableauPara = new int[taille] ;         // Le tableau d'entiers à trier
+    static int [] tableauPara = new int[taille] ;         // Le tableau d'entiers à trier
     static final int borne = 10 * taille ;                  // Valeur maximale dans le tableau
     static ExecutorService executor;
     static CompletionService<Void> ecs;
@@ -37,8 +37,6 @@ public class TriRapideThread {
 
     private static void seqTrierRapidement(int[] t, int début, int fin) {
         if (début < fin) {                             // S'il y a un seul élément, il n'y a rien à faire!
-            //System.out.println(t.length);
-
             int p = partitionner(t, début, fin) ;
             seqTrierRapidement(t, début, p-1) ;
             seqTrierRapidement(t, p+1, fin) ;
@@ -51,20 +49,13 @@ public class TriRapideThread {
       nbTasks.set(0);
       _paralTrierRapidement(t, début, fin);
       nbTasks.addAndGet(1);
-
-      int i = 0;
-      // while(nbTasks.get()<100)
-      // {
-      //   System.out.println(nbTasks);
-      // }
+      int i = 1;
 
       while(nbTasks.decrementAndGet() > 0)
       {
-        //System.out.println(nbTasks);
         try {
           ecs.take();
           i++;
-          //System.out.println(nbTasks);
         } catch (InterruptedException e)
         {
           e.printStackTrace();
@@ -82,7 +73,6 @@ public class TriRapideThread {
         return;
       }
 
-      //System.out.println(t.length);
       int p = partitionner(t, début, fin) ;
       int partSize = fin - début;
 
@@ -118,18 +108,6 @@ public class TriRapideThread {
             tableauPara[i] = tmp;
         }
 
-        int err = 0;
-        for (int i=0 ; i<taille ; i++) {
-            if(tableauSeq[i] != tableauPara[i])
-                err++;
-        }
-        if(err == 0)
-          System.out.println("Good to go !");
-        else
-          System.out.println("Tables have different contenent !!!!");
-
-        //System.out.println(tableauSeq == tableauPara);
-
         System.out.print("Tableau initial : ") ;
         afficher(tableauSeq, 0, taille -1) ;                         // Affiche le tableau à trier
 
@@ -159,40 +137,17 @@ public class TriRapideThread {
         afficher(tableauPara, 0, taille -1) ;                         // Affiche le tableau obtenu
         System.out.println("obtenu en " + (int)duréePara + " millisecondes.") ;
 
-        //System.out.println(Arrays.equals(tableauSeq,tableauPara));
-
         System.out.println("\n---------------RESULTS---------------");
         int errors = 0;
         for (int i=0 ; i<taille ; i++) {
             if(tableauSeq[i] != tableauPara[i])
                 errors++;
         }
-        //System.out.println("Done !");
 
         if(errors == 0)
           System.out.println("Les tableaux sont identiques.");
         else
-        {
           System.out.println("There is  "+ errors + " sorting errors.");
-          System.out.println(nbTasks.get() + " tasks left");
-        }
-
-        // if(tableauSeq == tableauPara)
-        // {
-        //   System.out.println("Les tableaux sont identiques");
-        // }
-        // else
-        // {
-        //   int errors = 0;
-        //   //System.out.println("Start testing !");
-        //   for (int i=0 ; i<taille ; i++) {                          // Remplissage aléatoire du tableau
-        //       if(tableauSeq[i] != tableauPara[i])
-        //           errors++;
-        //   }
-        //   //System.out.println("Done !");
-        //   if(errors > 0)
-        //     System.out.println("There is  "+ errors + " sorting errors");
-        // }
 
         System.out.println("La version parallèle est " + (double)((int)((duréeSeq/duréePara)*100))/100 + " fois plus rapide");
 
