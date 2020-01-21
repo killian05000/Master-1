@@ -1,0 +1,1204 @@
+Construit les fichiers train pour les 4 themes : CLT, ECO, INT, SPO
+Produit les fichiers .code et les fichiers .tf (pour term frequency) a partir des fichiers .txt
+Calcule le fichier IDF
+Evaluation: pour la ponderation .tf
+./corpus_topic/CLT/test/document.CLT.1.txt.tf - theme reference=CLT
+	- CLT : 0.089736
+	- ECO : 0.074532
+	- INT : 0.079777
+	- SPO : 0.265009
+Topic choisi: ECO => echec
+./corpus_topic/CLT/test/document.CLT.10.txt.tf - theme reference=CLT
+	- CLT : 0.043633
+	- ECO : 0.044852
+	- INT : 0.043002
+	- SPO : 0.311504
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.11.txt.tf - theme reference=CLT
+	- CLT : 0.039559
+	- ECO : 0.028679
+	- INT : 0.029536
+	- SPO : 0.306340
+Topic choisi: ECO => echec
+./corpus_topic/CLT/test/document.CLT.12.txt.tf - theme reference=CLT
+	- CLT : 0.091563
+	- ECO : 0.116685
+	- INT : 0.114283
+	- SPO : 0.383567
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.13.txt.tf - theme reference=CLT
+	- CLT : 0.080801
+	- ECO : 0.075630
+	- INT : 0.069423
+	- SPO : 0.299559
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.14.txt.tf - theme reference=CLT
+	- CLT : 0.054901
+	- ECO : 0.070383
+	- INT : 0.081782
+	- SPO : 0.273019
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.15.txt.tf - theme reference=CLT
+	- CLT : 0.054449
+	- ECO : 0.074187
+	- INT : 0.074426
+	- SPO : 0.338845
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.16.txt.tf - theme reference=CLT
+	- CLT : 0.063205
+	- ECO : 0.068581
+	- INT : 0.061160
+	- SPO : 0.296116
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.17.txt.tf - theme reference=CLT
+	- CLT : 0.062945
+	- ECO : 0.063193
+	- INT : 0.056000
+	- SPO : 0.286134
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.18.txt.tf - theme reference=CLT
+	- CLT : 0.051123
+	- ECO : 0.088446
+	- INT : 0.083175
+	- SPO : 0.366313
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.19.txt.tf - theme reference=CLT
+	- CLT : 0.068636
+	- ECO : 0.054447
+	- INT : 0.049942
+	- SPO : 0.320130
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.2.txt.tf - theme reference=CLT
+	- CLT : 0.086262
+	- ECO : 0.071825
+	- INT : 0.066465
+	- SPO : 0.329209
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.20.txt.tf - theme reference=CLT
+	- CLT : 0.055440
+	- ECO : 0.062321
+	- INT : 0.055315
+	- SPO : 0.344170
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.21.txt.tf - theme reference=CLT
+	- CLT : 0.087048
+	- ECO : 0.092164
+	- INT : 0.086961
+	- SPO : 0.354048
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.22.txt.tf - theme reference=CLT
+	- CLT : 0.064910
+	- ECO : 0.065263
+	- INT : 0.058312
+	- SPO : 0.297874
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.23.txt.tf - theme reference=CLT
+	- CLT : 0.080483
+	- ECO : 0.115180
+	- INT : 0.107939
+	- SPO : 0.380191
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.24.txt.tf - theme reference=CLT
+	- CLT : 0.051676
+	- ECO : 0.055266
+	- INT : 0.049344
+	- SPO : 0.346211
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.25.txt.tf - theme reference=CLT
+	- CLT : 0.039029
+	- ECO : 0.040689
+	- INT : 0.039762
+	- SPO : 0.329419
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.26.txt.tf - theme reference=CLT
+	- CLT : 0.040496
+	- ECO : 0.051867
+	- INT : 0.046082
+	- SPO : 0.312038
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.27.txt.tf - theme reference=CLT
+	- CLT : 0.084557
+	- ECO : 0.062812
+	- INT : 0.063473
+	- SPO : 0.329341
+Topic choisi: ECO => echec
+./corpus_topic/CLT/test/document.CLT.28.txt.tf - theme reference=CLT
+	- CLT : 0.048939
+	- ECO : 0.044610
+	- INT : 0.045472
+	- SPO : 0.344485
+Topic choisi: ECO => echec
+./corpus_topic/CLT/test/document.CLT.29.txt.tf - theme reference=CLT
+	- CLT : 0.087210
+	- ECO : 0.071467
+	- INT : 0.069539
+	- SPO : 0.310679
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.3.txt.tf - theme reference=CLT
+	- CLT : 0.050704
+	- ECO : 0.046464
+	- INT : 0.045340
+	- SPO : 0.329483
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.30.txt.tf - theme reference=CLT
+	- CLT : 0.055359
+	- ECO : 0.049030
+	- INT : 0.042699
+	- SPO : 0.303160
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.31.txt.tf - theme reference=CLT
+	- CLT : 0.060371
+	- ECO : 0.056723
+	- INT : 0.063764
+	- SPO : 0.326102
+Topic choisi: ECO => echec
+./corpus_topic/CLT/test/document.CLT.32.txt.tf - theme reference=CLT
+	- CLT : 0.044872
+	- ECO : 0.075119
+	- INT : 0.084129
+	- SPO : 0.319092
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.33.txt.tf - theme reference=CLT
+	- CLT : 0.053879
+	- ECO : 0.085422
+	- INT : 0.082002
+	- SPO : 0.365758
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.34.txt.tf - theme reference=CLT
+	- CLT : 0.059641
+	- ECO : 0.059375
+	- INT : 0.054072
+	- SPO : 0.341393
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.35.txt.tf - theme reference=CLT
+	- CLT : 0.048606
+	- ECO : 0.043691
+	- INT : 0.039573
+	- SPO : 0.317632
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.36.txt.tf - theme reference=CLT
+	- CLT : 0.068140
+	- ECO : 0.073685
+	- INT : 0.083209
+	- SPO : 0.335118
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.37.txt.tf - theme reference=CLT
+	- CLT : 0.066111
+	- ECO : 0.073400
+	- INT : 0.062048
+	- SPO : 0.342234
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.38.txt.tf - theme reference=CLT
+	- CLT : 0.061337
+	- ECO : 0.065119
+	- INT : 0.068271
+	- SPO : 0.318429
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.39.txt.tf - theme reference=CLT
+	- CLT : 0.091501
+	- ECO : 0.141795
+	- INT : 0.143007
+	- SPO : 0.405558
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.4.txt.tf - theme reference=CLT
+	- CLT : 0.087045
+	- ECO : 0.064188
+	- INT : 0.066360
+	- SPO : 0.265535
+Topic choisi: ECO => echec
+./corpus_topic/CLT/test/document.CLT.40.txt.tf - theme reference=CLT
+	- CLT : 0.047821
+	- ECO : 0.054732
+	- INT : 0.052339
+	- SPO : 0.326560
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.41.txt.tf - theme reference=CLT
+	- CLT : 0.099283
+	- ECO : 0.114926
+	- INT : 0.119558
+	- SPO : 0.373751
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.42.txt.tf - theme reference=CLT
+	- CLT : 0.054556
+	- ECO : 0.067687
+	- INT : 0.064010
+	- SPO : 0.335320
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.43.txt.tf - theme reference=CLT
+	- CLT : 0.044610
+	- ECO : 0.056071
+	- INT : 0.065271
+	- SPO : 0.315549
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.44.txt.tf - theme reference=CLT
+	- CLT : 0.527447
+	- ECO : 0.624629
+	- INT : 0.619170
+	- SPO : 0.525888
+Topic choisi: SPO => echec
+./corpus_topic/CLT/test/document.CLT.45.txt.tf - theme reference=CLT
+	- CLT : 0.052183
+	- ECO : 0.055520
+	- INT : 0.057372
+	- SPO : 0.341878
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.46.txt.tf - theme reference=CLT
+	- CLT : 0.081745
+	- ECO : 0.086623
+	- INT : 0.087960
+	- SPO : 0.356489
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.47.txt.tf - theme reference=CLT
+	- CLT : 0.063910
+	- ECO : 0.068060
+	- INT : 0.071634
+	- SPO : 0.341733
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.48.txt.tf - theme reference=CLT
+	- CLT : 0.046249
+	- ECO : 0.064831
+	- INT : 0.061334
+	- SPO : 0.349009
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.49.txt.tf - theme reference=CLT
+	- CLT : 0.114676
+	- ECO : 0.092053
+	- INT : 0.081621
+	- SPO : 0.342966
+Topic choisi: INT => echec
+./corpus_topic/CLT/test/document.CLT.5.txt.tf - theme reference=CLT
+	- CLT : 0.040930
+	- ECO : 0.042904
+	- INT : 0.049470
+	- SPO : 0.320897
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.50.txt.tf - theme reference=CLT
+	- CLT : 0.066972
+	- ECO : 0.071856
+	- INT : 0.069094
+	- SPO : 0.331182
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.6.txt.tf - theme reference=CLT
+	- CLT : 0.044872
+	- ECO : 0.047990
+	- INT : 0.052408
+	- SPO : 0.335320
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.7.txt.tf - theme reference=CLT
+	- CLT : 0.089701
+	- ECO : 0.122689
+	- INT : 0.124011
+	- SPO : 0.375186
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.8.txt.tf - theme reference=CLT
+	- CLT : 0.079081
+	- ECO : 0.112775
+	- INT : 0.111176
+	- SPO : 0.374403
+Topic choisi: CLT => succes
+./corpus_topic/CLT/test/document.CLT.9.txt.tf - theme reference=CLT
+	- CLT : 0.096245
+	- ECO : 0.074072
+	- INT : 0.075055
+	- SPO : 0.280313
+Topic choisi: ECO => echec
+./corpus_topic/ECO/test/document.ECO.1.txt.tf - theme reference=ECO
+	- CLT : 0.113160
+	- ECO : 0.104994
+	- INT : 0.107240
+	- SPO : 0.378232
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.10.txt.tf - theme reference=ECO
+	- CLT : 0.083686
+	- ECO : 0.053808
+	- INT : 0.061221
+	- SPO : 0.322073
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.11.txt.tf - theme reference=ECO
+	- CLT : 0.097115
+	- ECO : 0.088724
+	- INT : 0.081247
+	- SPO : 0.352494
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.12.txt.tf - theme reference=ECO
+	- CLT : 0.062788
+	- ECO : 0.057839
+	- INT : 0.053822
+	- SPO : 0.332912
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.13.txt.tf - theme reference=ECO
+	- CLT : 0.116267
+	- ECO : 0.091628
+	- INT : 0.106131
+	- SPO : 0.280457
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.14.txt.tf - theme reference=ECO
+	- CLT : 0.139978
+	- ECO : 0.115971
+	- INT : 0.133573
+	- SPO : 0.249079
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.15.txt.tf - theme reference=ECO
+	- CLT : 0.071430
+	- ECO : 0.056188
+	- INT : 0.051826
+	- SPO : 0.321629
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.16.txt.tf - theme reference=ECO
+	- CLT : 0.060722
+	- ECO : 0.052668
+	- INT : 0.057225
+	- SPO : 0.337218
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.17.txt.tf - theme reference=ECO
+	- CLT : 0.062138
+	- ECO : 0.052546
+	- INT : 0.054936
+	- SPO : 0.296814
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.18.txt.tf - theme reference=ECO
+	- CLT : 0.119220
+	- ECO : 0.085929
+	- INT : 0.103594
+	- SPO : 0.242517
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.19.txt.tf - theme reference=ECO
+	- CLT : 0.064573
+	- ECO : 0.041910
+	- INT : 0.044955
+	- SPO : 0.271520
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.2.txt.tf - theme reference=ECO
+	- CLT : 0.099025
+	- ECO : 0.100171
+	- INT : 0.087533
+	- SPO : 0.377242
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.20.txt.tf - theme reference=ECO
+	- CLT : 0.086556
+	- ECO : 0.063502
+	- INT : 0.063099
+	- SPO : 0.287646
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.21.txt.tf - theme reference=ECO
+	- CLT : 0.079179
+	- ECO : 0.058264
+	- INT : 0.074176
+	- SPO : 0.281242
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.22.txt.tf - theme reference=ECO
+	- CLT : 0.069815
+	- ECO : 0.082396
+	- INT : 0.078031
+	- SPO : 0.334265
+Topic choisi: CLT => echec
+./corpus_topic/ECO/test/document.ECO.23.txt.tf - theme reference=ECO
+	- CLT : 0.110012
+	- ECO : 0.123132
+	- INT : 0.116150
+	- SPO : 0.361764
+Topic choisi: CLT => echec
+./corpus_topic/ECO/test/document.ECO.24.txt.tf - theme reference=ECO
+	- CLT : 0.058256
+	- ECO : 0.036847
+	- INT : 0.037715
+	- SPO : 0.305978
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.25.txt.tf - theme reference=ECO
+	- CLT : 0.054291
+	- ECO : 0.048726
+	- INT : 0.041844
+	- SPO : 0.359698
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.26.txt.tf - theme reference=ECO
+	- CLT : 0.110247
+	- ECO : 0.087077
+	- INT : 0.084319
+	- SPO : 0.300009
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.27.txt.tf - theme reference=ECO
+	- CLT : 0.083284
+	- ECO : 0.085433
+	- INT : 0.081587
+	- SPO : 0.313233
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.28.txt.tf - theme reference=ECO
+	- CLT : 0.090920
+	- ECO : 0.094582
+	- INT : 0.092022
+	- SPO : 0.327161
+Topic choisi: CLT => echec
+./corpus_topic/ECO/test/document.ECO.29.txt.tf - theme reference=ECO
+	- CLT : 0.087012
+	- ECO : 0.057197
+	- INT : 0.059161
+	- SPO : 0.300170
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.3.txt.tf - theme reference=ECO
+	- CLT : 0.137442
+	- ECO : 0.106828
+	- INT : 0.133710
+	- SPO : 0.304411
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.30.txt.tf - theme reference=ECO
+	- CLT : 0.161580
+	- ECO : 0.140240
+	- INT : 0.151800
+	- SPO : 0.336954
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.31.txt.tf - theme reference=ECO
+	- CLT : 0.073698
+	- ECO : 0.051412
+	- INT : 0.045500
+	- SPO : 0.272126
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.32.txt.tf - theme reference=ECO
+	- CLT : 0.139336
+	- ECO : 0.112067
+	- INT : 0.121806
+	- SPO : 0.263079
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.33.txt.tf - theme reference=ECO
+	- CLT : 0.057498
+	- ECO : 0.049319
+	- INT : 0.055919
+	- SPO : 0.330516
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.34.txt.tf - theme reference=ECO
+	- CLT : 0.051476
+	- ECO : 0.053281
+	- INT : 0.051044
+	- SPO : 0.324367
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.35.txt.tf - theme reference=ECO
+	- CLT : 0.098956
+	- ECO : 0.072499
+	- INT : 0.073687
+	- SPO : 0.298539
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.36.txt.tf - theme reference=ECO
+	- CLT : 0.130318
+	- ECO : 0.095713
+	- INT : 0.108837
+	- SPO : 0.257974
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.37.txt.tf - theme reference=ECO
+	- CLT : 0.105131
+	- ECO : 0.073524
+	- INT : 0.101338
+	- SPO : 0.298707
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.38.txt.tf - theme reference=ECO
+	- CLT : 0.194197
+	- ECO : 0.148097
+	- INT : 0.182657
+	- SPO : 0.294149
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.39.txt.tf - theme reference=ECO
+	- CLT : 0.103131
+	- ECO : 0.113815
+	- INT : 0.109977
+	- SPO : 0.357111
+Topic choisi: CLT => echec
+./corpus_topic/ECO/test/document.ECO.4.txt.tf - theme reference=ECO
+	- CLT : 0.054407
+	- ECO : 0.054045
+	- INT : 0.055906
+	- SPO : 0.332077
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.40.txt.tf - theme reference=ECO
+	- CLT : 0.183117
+	- ECO : 0.171966
+	- INT : 0.164374
+	- SPO : 0.306160
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.41.txt.tf - theme reference=ECO
+	- CLT : 0.075735
+	- ECO : 0.066886
+	- INT : 0.060164
+	- SPO : 0.340115
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.42.txt.tf - theme reference=ECO
+	- CLT : 0.110088
+	- ECO : 0.083999
+	- INT : 0.101153
+	- SPO : 0.292970
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.43.txt.tf - theme reference=ECO
+	- CLT : 0.057278
+	- ECO : 0.055024
+	- INT : 0.061926
+	- SPO : 0.333879
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.44.txt.tf - theme reference=ECO
+	- CLT : 0.047446
+	- ECO : 0.048849
+	- INT : 0.053589
+	- SPO : 0.326859
+Topic choisi: CLT => echec
+./corpus_topic/ECO/test/document.ECO.45.txt.tf - theme reference=ECO
+	- CLT : 0.067272
+	- ECO : 0.049901
+	- INT : 0.041622
+	- SPO : 0.306349
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.46.txt.tf - theme reference=ECO
+	- CLT : 0.058969
+	- ECO : 0.050202
+	- INT : 0.049804
+	- SPO : 0.300625
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.47.txt.tf - theme reference=ECO
+	- CLT : 0.047245
+	- ECO : 0.048508
+	- INT : 0.053784
+	- SPO : 0.326641
+Topic choisi: CLT => echec
+./corpus_topic/ECO/test/document.ECO.48.txt.tf - theme reference=ECO
+	- CLT : 0.110088
+	- ECO : 0.083999
+	- INT : 0.101153
+	- SPO : 0.292970
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.49.txt.tf - theme reference=ECO
+	- CLT : 0.050623
+	- ECO : 0.062895
+	- INT : 0.053927
+	- SPO : 0.319911
+Topic choisi: CLT => echec
+./corpus_topic/ECO/test/document.ECO.5.txt.tf - theme reference=ECO
+	- CLT : 0.087882
+	- ECO : 0.067367
+	- INT : 0.065288
+	- SPO : 0.303934
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.50.txt.tf - theme reference=ECO
+	- CLT : 0.040978
+	- ECO : 0.038802
+	- INT : 0.038519
+	- SPO : 0.288948
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.6.txt.tf - theme reference=ECO
+	- CLT : 0.096394
+	- ECO : 0.074811
+	- INT : 0.075285
+	- SPO : 0.299792
+Topic choisi: ECO => succes
+./corpus_topic/ECO/test/document.ECO.7.txt.tf - theme reference=ECO
+	- CLT : 0.053343
+	- ECO : 0.053935
+	- INT : 0.046545
+	- SPO : 0.313413
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.8.txt.tf - theme reference=ECO
+	- CLT : 0.064017
+	- ECO : 0.052580
+	- INT : 0.048894
+	- SPO : 0.300451
+Topic choisi: INT => echec
+./corpus_topic/ECO/test/document.ECO.9.txt.tf - theme reference=ECO
+	- CLT : 0.122474
+	- ECO : 0.102405
+	- INT : 0.097081
+	- SPO : 0.340450
+Topic choisi: INT => echec
+./corpus_topic/INT/test/document.INT.1.txt.tf - theme reference=INT
+	- CLT : 0.094739
+	- ECO : 0.088682
+	- INT : 0.091094
+	- SPO : 0.374846
+Topic choisi: ECO => echec
+./corpus_topic/INT/test/document.INT.10.txt.tf - theme reference=INT
+	- CLT : 0.048186
+	- ECO : 0.043758
+	- INT : 0.042299
+	- SPO : 0.306885
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.11.txt.tf - theme reference=INT
+	- CLT : 0.057877
+	- ECO : 0.035623
+	- INT : 0.035185
+	- SPO : 0.294296
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.12.txt.tf - theme reference=INT
+	- CLT : 0.054327
+	- ECO : 0.052259
+	- INT : 0.051999
+	- SPO : 0.308335
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.13.txt.tf - theme reference=INT
+	- CLT : 0.087226
+	- ECO : 0.080159
+	- INT : 0.072606
+	- SPO : 0.343335
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.14.txt.tf - theme reference=INT
+	- CLT : 0.121698
+	- ECO : 0.096155
+	- INT : 0.089374
+	- SPO : 0.267782
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.15.txt.tf - theme reference=INT
+	- CLT : 0.169024
+	- ECO : 0.141510
+	- INT : 0.138898
+	- SPO : 0.280987
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.16.txt.tf - theme reference=INT
+	- CLT : 0.061451
+	- ECO : 0.046079
+	- INT : 0.040051
+	- SPO : 0.321069
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.17.txt.tf - theme reference=INT
+	- CLT : 0.061240
+	- ECO : 0.044451
+	- INT : 0.048075
+	- SPO : 0.292691
+Topic choisi: ECO => echec
+./corpus_topic/INT/test/document.INT.18.txt.tf - theme reference=INT
+	- CLT : 0.047732
+	- ECO : 0.053024
+	- INT : 0.058546
+	- SPO : 0.270118
+Topic choisi: CLT => echec
+./corpus_topic/INT/test/document.INT.19.txt.tf - theme reference=INT
+	- CLT : 0.044791
+	- ECO : 0.046195
+	- INT : 0.044061
+	- SPO : 0.314146
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.2.txt.tf - theme reference=INT
+	- CLT : 0.094276
+	- ECO : 0.074520
+	- INT : 0.079381
+	- SPO : 0.354678
+Topic choisi: ECO => echec
+./corpus_topic/INT/test/document.INT.20.txt.tf - theme reference=INT
+	- CLT : 0.054403
+	- ECO : 0.064641
+	- INT : 0.072300
+	- SPO : 0.333012
+Topic choisi: CLT => echec
+./corpus_topic/INT/test/document.INT.21.txt.tf - theme reference=INT
+	- CLT : 0.064776
+	- ECO : 0.057261
+	- INT : 0.047526
+	- SPO : 0.323121
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.22.txt.tf - theme reference=INT
+	- CLT : 0.169050
+	- ECO : 0.160041
+	- INT : 0.158487
+	- SPO : 0.288310
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.23.txt.tf - theme reference=INT
+	- CLT : 0.070190
+	- ECO : 0.071423
+	- INT : 0.065459
+	- SPO : 0.361991
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.24.txt.tf - theme reference=INT
+	- CLT : 0.079983
+	- ECO : 0.078562
+	- INT : 0.072241
+	- SPO : 0.318019
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.25.txt.tf - theme reference=INT
+	- CLT : 0.054294
+	- ECO : 0.052829
+	- INT : 0.050372
+	- SPO : 0.313006
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.26.txt.tf - theme reference=INT
+	- CLT : 0.053503
+	- ECO : 0.032682
+	- INT : 0.031376
+	- SPO : 0.294906
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.27.txt.tf - theme reference=INT
+	- CLT : 0.069643
+	- ECO : 0.044189
+	- INT : 0.047062
+	- SPO : 0.315853
+Topic choisi: ECO => echec
+./corpus_topic/INT/test/document.INT.28.txt.tf - theme reference=INT
+	- CLT : 0.074711
+	- ECO : 0.051791
+	- INT : 0.045074
+	- SPO : 0.307284
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.29.txt.tf - theme reference=INT
+	- CLT : 0.084097
+	- ECO : 0.064555
+	- INT : 0.062390
+	- SPO : 0.255907
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.3.txt.tf - theme reference=INT
+	- CLT : 0.045410
+	- ECO : 0.057002
+	- INT : 0.052783
+	- SPO : 0.333653
+Topic choisi: CLT => echec
+./corpus_topic/INT/test/document.INT.30.txt.tf - theme reference=INT
+	- CLT : 0.062738
+	- ECO : 0.063158
+	- INT : 0.060693
+	- SPO : 0.357985
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.31.txt.tf - theme reference=INT
+	- CLT : 0.071295
+	- ECO : 0.061612
+	- INT : 0.065245
+	- SPO : 0.320487
+Topic choisi: ECO => echec
+./corpus_topic/INT/test/document.INT.32.txt.tf - theme reference=INT
+	- CLT : 0.065423
+	- ECO : 0.049308
+	- INT : 0.048499
+	- SPO : 0.321017
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.33.txt.tf - theme reference=INT
+	- CLT : 0.058640
+	- ECO : 0.064987
+	- INT : 0.063084
+	- SPO : 0.336472
+Topic choisi: CLT => echec
+./corpus_topic/INT/test/document.INT.34.txt.tf - theme reference=INT
+	- CLT : 0.080054
+	- ECO : 0.067801
+	- INT : 0.071471
+	- SPO : 0.231036
+Topic choisi: ECO => echec
+./corpus_topic/INT/test/document.INT.35.txt.tf - theme reference=INT
+	- CLT : 0.055339
+	- ECO : 0.048692
+	- INT : 0.039814
+	- SPO : 0.342543
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.36.txt.tf - theme reference=INT
+	- CLT : 0.063833
+	- ECO : 0.063795
+	- INT : 0.059756
+	- SPO : 0.347749
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.37.txt.tf - theme reference=INT
+	- CLT : 0.036309
+	- ECO : 0.048951
+	- INT : 0.049491
+	- SPO : 0.366575
+Topic choisi: CLT => echec
+./corpus_topic/INT/test/document.INT.38.txt.tf - theme reference=INT
+	- CLT : 0.042011
+	- ECO : 0.045634
+	- INT : 0.041424
+	- SPO : 0.333892
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.39.txt.tf - theme reference=INT
+	- CLT : 0.085993
+	- ECO : 0.070749
+	- INT : 0.062902
+	- SPO : 0.333150
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.4.txt.tf - theme reference=INT
+	- CLT : 0.058199
+	- ECO : 0.039442
+	- INT : 0.036593
+	- SPO : 0.301184
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.40.txt.tf - theme reference=INT
+	- CLT : 0.074584
+	- ECO : 0.069148
+	- INT : 0.069443
+	- SPO : 0.323400
+Topic choisi: ECO => echec
+./corpus_topic/INT/test/document.INT.41.txt.tf - theme reference=INT
+	- CLT : 0.049001
+	- ECO : 0.045834
+	- INT : 0.040175
+	- SPO : 0.309715
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.42.txt.tf - theme reference=INT
+	- CLT : 0.070474
+	- ECO : 0.058728
+	- INT : 0.055406
+	- SPO : 0.306899
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.43.txt.tf - theme reference=INT
+	- CLT : 0.056662
+	- ECO : 0.049723
+	- INT : 0.049978
+	- SPO : 0.302899
+Topic choisi: ECO => echec
+./corpus_topic/INT/test/document.INT.44.txt.tf - theme reference=INT
+	- CLT : 0.066251
+	- ECO : 0.062304
+	- INT : 0.055738
+	- SPO : 0.314899
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.45.txt.tf - theme reference=INT
+	- CLT : 0.126122
+	- ECO : 0.133284
+	- INT : 0.134444
+	- SPO : 0.362573
+Topic choisi: CLT => echec
+./corpus_topic/INT/test/document.INT.46.txt.tf - theme reference=INT
+	- CLT : 0.074584
+	- ECO : 0.069148
+	- INT : 0.069443
+	- SPO : 0.323400
+Topic choisi: ECO => echec
+./corpus_topic/INT/test/document.INT.47.txt.tf - theme reference=INT
+	- CLT : 0.078069
+	- ECO : 0.061117
+	- INT : 0.054913
+	- SPO : 0.325053
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.48.txt.tf - theme reference=INT
+	- CLT : 0.049751
+	- ECO : 0.046395
+	- INT : 0.041432
+	- SPO : 0.315375
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.49.txt.tf - theme reference=INT
+	- CLT : 0.069194
+	- ECO : 0.057986
+	- INT : 0.047556
+	- SPO : 0.345677
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.5.txt.tf - theme reference=INT
+	- CLT : 0.062940
+	- ECO : 0.041475
+	- INT : 0.039876
+	- SPO : 0.295493
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.50.txt.tf - theme reference=INT
+	- CLT : 0.066588
+	- ECO : 0.074905
+	- INT : 0.079939
+	- SPO : 0.339798
+Topic choisi: CLT => echec
+./corpus_topic/INT/test/document.INT.6.txt.tf - theme reference=INT
+	- CLT : 0.057524
+	- ECO : 0.043197
+	- INT : 0.045584
+	- SPO : 0.316145
+Topic choisi: ECO => echec
+./corpus_topic/INT/test/document.INT.7.txt.tf - theme reference=INT
+	- CLT : 0.066105
+	- ECO : 0.045865
+	- INT : 0.035080
+	- SPO : 0.307239
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.8.txt.tf - theme reference=INT
+	- CLT : 0.114660
+	- ECO : 0.106799
+	- INT : 0.093789
+	- SPO : 0.326158
+Topic choisi: INT => succes
+./corpus_topic/INT/test/document.INT.9.txt.tf - theme reference=INT
+	- CLT : 0.099633
+	- ECO : 0.093355
+	- INT : 0.080297
+	- SPO : 0.330697
+Topic choisi: INT => succes
+./corpus_topic/SPO/test/document.SPO.1.txt.tf - theme reference=SPO
+	- CLT : 0.067736
+	- ECO : 0.086279
+	- INT : 0.090149
+	- SPO : 0.295360
+Topic choisi: CLT => echec
+./corpus_topic/SPO/test/document.SPO.10.txt.tf - theme reference=SPO
+	- CLT : 0.591697
+	- ECO : 0.560012
+	- INT : 0.575185
+	- SPO : 0.328963
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.11.txt.tf - theme reference=SPO
+	- CLT : 0.093091
+	- ECO : 0.083380
+	- INT : 0.087451
+	- SPO : 0.251959
+Topic choisi: ECO => echec
+./corpus_topic/SPO/test/document.SPO.12.txt.tf - theme reference=SPO
+	- CLT : 0.840816
+	- ECO : 0.810482
+	- INT : 0.826766
+	- SPO : 0.477630
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.13.txt.tf - theme reference=SPO
+	- CLT : 0.670514
+	- ECO : 0.663444
+	- INT : 0.681650
+	- SPO : 0.551067
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.14.txt.tf - theme reference=SPO
+	- CLT : 0.788086
+	- ECO : 0.806116
+	- INT : 0.810056
+	- SPO : 0.394490
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.15.txt.tf - theme reference=SPO
+	- CLT : 0.263643
+	- ECO : 0.257767
+	- INT : 0.255969
+	- SPO : 0.368706
+Topic choisi: INT => echec
+./corpus_topic/SPO/test/document.SPO.16.txt.tf - theme reference=SPO
+	- CLT : 0.293436
+	- ECO : 0.296717
+	- INT : 0.304831
+	- SPO : 0.148347
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.17.txt.tf - theme reference=SPO
+	- CLT : 0.290714
+	- ECO : 0.294058
+	- INT : 0.301507
+	- SPO : 0.149390
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.18.txt.tf - theme reference=SPO
+	- CLT : 0.330061
+	- ECO : 0.309698
+	- INT : 0.325546
+	- SPO : 0.158208
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.19.txt.tf - theme reference=SPO
+	- CLT : 0.473970
+	- ECO : 0.460686
+	- INT : 0.492610
+	- SPO : 0.291356
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.2.txt.tf - theme reference=SPO
+	- CLT : 0.785027
+	- ECO : 0.795916
+	- INT : 0.801035
+	- SPO : 0.365981
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.20.txt.tf - theme reference=SPO
+	- CLT : 0.479710
+	- ECO : 0.465492
+	- INT : 0.490906
+	- SPO : 0.319543
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.21.txt.tf - theme reference=SPO
+	- CLT : 0.526630
+	- ECO : 0.528957
+	- INT : 0.542407
+	- SPO : 0.253245
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.22.txt.tf - theme reference=SPO
+	- CLT : 0.446627
+	- ECO : 0.446133
+	- INT : 0.454066
+	- SPO : 0.200424
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.23.txt.tf - theme reference=SPO
+	- CLT : 0.708637
+	- ECO : 0.708061
+	- INT : 0.716605
+	- SPO : 0.228574
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.24.txt.tf - theme reference=SPO
+	- CLT : 0.050426
+	- ECO : 0.052389
+	- INT : 0.055942
+	- SPO : 0.271408
+Topic choisi: CLT => echec
+./corpus_topic/SPO/test/document.SPO.25.txt.tf - theme reference=SPO
+	- CLT : 0.062297
+	- ECO : 0.053429
+	- INT : 0.057381
+	- SPO : 0.260966
+Topic choisi: ECO => echec
+./corpus_topic/SPO/test/document.SPO.26.txt.tf - theme reference=SPO
+	- CLT : 0.541119
+	- ECO : 0.524702
+	- INT : 0.530823
+	- SPO : 0.335632
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.27.txt.tf - theme reference=SPO
+	- CLT : 0.789812
+	- ECO : 0.807921
+	- INT : 0.811348
+	- SPO : 0.421740
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.28.txt.tf - theme reference=SPO
+	- CLT : 0.822596
+	- ECO : 0.841296
+	- INT : 0.845470
+	- SPO : 0.449587
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.29.txt.tf - theme reference=SPO
+	- CLT : 0.770469
+	- ECO : 0.783640
+	- INT : 0.794695
+	- SPO : 0.378721
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.3.txt.tf - theme reference=SPO
+	- CLT : 0.790347
+	- ECO : 0.798576
+	- INT : 0.805574
+	- SPO : 0.333317
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.30.txt.tf - theme reference=SPO
+	- CLT : 0.773310
+	- ECO : 0.789155
+	- INT : 0.793856
+	- SPO : 0.384693
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.31.txt.tf - theme reference=SPO
+	- CLT : 0.774193
+	- ECO : 0.786310
+	- INT : 0.798672
+	- SPO : 0.382612
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.32.txt.tf - theme reference=SPO
+	- CLT : 0.714701
+	- ECO : 0.722318
+	- INT : 0.736635
+	- SPO : 0.325133
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.33.txt.tf - theme reference=SPO
+	- CLT : 0.616506
+	- ECO : 0.620204
+	- INT : 0.625113
+	- SPO : 0.382884
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.34.txt.tf - theme reference=SPO
+	- CLT : 0.689611
+	- ECO : 0.692374
+	- INT : 0.699688
+	- SPO : 0.403264
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.35.txt.tf - theme reference=SPO
+	- CLT : 0.853003
+	- ECO : 0.834490
+	- INT : 0.848748
+	- SPO : 0.532181
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.36.txt.tf - theme reference=SPO
+	- CLT : 0.555571
+	- ECO : 0.559738
+	- INT : 0.564469
+	- SPO : 0.335067
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.37.txt.tf - theme reference=SPO
+	- CLT : 0.767387
+	- ECO : 0.779781
+	- INT : 0.791186
+	- SPO : 0.377587
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.38.txt.tf - theme reference=SPO
+	- CLT : 0.725367
+	- ECO : 0.723801
+	- INT : 0.734508
+	- SPO : 0.242230
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.39.txt.tf - theme reference=SPO
+	- CLT : 0.714895
+	- ECO : 0.714952
+	- INT : 0.722554
+	- SPO : 0.248099
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.4.txt.tf - theme reference=SPO
+	- CLT : 0.761443
+	- ECO : 0.772667
+	- INT : 0.777560
+	- SPO : 0.348146
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.40.txt.tf - theme reference=SPO
+	- CLT : 0.083696
+	- ECO : 0.077444
+	- INT : 0.085012
+	- SPO : 0.233293
+Topic choisi: ECO => echec
+./corpus_topic/SPO/test/document.SPO.41.txt.tf - theme reference=SPO
+	- CLT : 0.349981
+	- ECO : 0.340043
+	- INT : 0.346359
+	- SPO : 0.111584
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.42.txt.tf - theme reference=SPO
+	- CLT : 0.469280
+	- ECO : 0.457591
+	- INT : 0.455007
+	- SPO : 0.447511
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.43.txt.tf - theme reference=SPO
+	- CLT : 0.448134
+	- ECO : 0.442782
+	- INT : 0.454918
+	- SPO : 0.190435
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.44.txt.tf - theme reference=SPO
+	- CLT : 0.581399
+	- ECO : 0.558531
+	- INT : 0.567952
+	- SPO : 0.320417
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.45.txt.tf - theme reference=SPO
+	- CLT : 0.300831
+	- ECO : 0.283383
+	- INT : 0.306050
+	- SPO : 0.169320
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.46.txt.tf - theme reference=SPO
+	- CLT : 0.733677
+	- ECO : 0.713940
+	- INT : 0.723022
+	- SPO : 0.411071
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.47.txt.tf - theme reference=SPO
+	- CLT : 0.561414
+	- ECO : 0.542610
+	- INT : 0.544012
+	- SPO : 0.318337
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.48.txt.tf - theme reference=SPO
+	- CLT : 0.451638
+	- ECO : 0.444279
+	- INT : 0.453343
+	- SPO : 0.157676
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.49.txt.tf - theme reference=SPO
+	- CLT : 0.829644
+	- ECO : 0.801995
+	- INT : 0.817903
+	- SPO : 0.441875
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.5.txt.tf - theme reference=SPO
+	- CLT : 0.387381
+	- ECO : 0.381573
+	- INT : 0.408444
+	- SPO : 0.174862
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.50.txt.tf - theme reference=SPO
+	- CLT : 0.490344
+	- ECO : 0.471284
+	- INT : 0.482894
+	- SPO : 0.296334
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.6.txt.tf - theme reference=SPO
+	- CLT : 0.619271
+	- ECO : 0.611209
+	- INT : 0.620475
+	- SPO : 0.186545
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.7.txt.tf - theme reference=SPO
+	- CLT : 0.599828
+	- ECO : 0.591844
+	- INT : 0.600355
+	- SPO : 0.177609
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.8.txt.tf - theme reference=SPO
+	- CLT : 0.445875
+	- ECO : 0.436449
+	- INT : 0.442402
+	- SPO : 0.154271
+Topic choisi: SPO => succes
+./corpus_topic/SPO/test/document.SPO.9.txt.tf - theme reference=SPO
+	- CLT : 0.564533
+	- ECO : 0.546206
+	- INT : 0.546753
+	- SPO : 0.333572
+Topic choisi: SPO => succes

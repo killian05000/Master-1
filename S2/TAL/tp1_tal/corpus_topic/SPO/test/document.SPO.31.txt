@@ -1,0 +1,27 @@
+PARIS, 3 jan (AFP) - Programme du 3e tour aller de la Coupe de l'EHF dames de handball qui aura lieu vendredi 9, samedi 10 et dimanche 11 janvier (en heures GMT):
+. Vendredi 9 janvier:
+(19h00) Krusevac (SEM) - Dijon (FRA)
+        retour dimanche 11 (15h00), les 2 matches en France
+(19h30) Estella (ESP) - Piran (SLO)
+        retour samedi 10 (17h00), les 2 matches en Espagne
+. Samedi 10 janvier:
+(13h00) Minsk (BLR) - Volgograd (RUS)
+        retour dimanche 11 (13h00), les 2 matches en Russie
+(13h15) Randers (DAN) - Oslo (NOR)
+(15h00) Kristiansand (NOR) - Ionias (GRE)
+        retour dimanche 11 (17h00), les 2 matches en Norvège 
+(15h30) Sala (SVQ) - Viborg (DAN)
+(16h00) Artas (GRE) - Rostov (RUS)
+        retour lundi 12 (16h00), les 2 matches en Grèce
+(16h00) EGP Skopje (MCD) - Zalec (SLO)
+(16h00) CS Valcea (ROU) - Gyor (HUN)
+(17h00) Michalovce (SVQ) - Buxtehude (ALL)
+(17h00) Koprivnica (CRO) - Saint-Sébastien (ESP)
+(19h00) Neustadt (AUT) - Rapid Bucarest (ROU)
+. Dimanche 11 janvier:
+(11h00) A. Astrakhan (RUS) - Piotrkow (POL)
+(14h30) Gudme (DAN) - Hoerby (SUE)
+(17h00) Besançon (FRA) - Knjazevac (SEM)
+Aller le 17, retour le 18: Osijek (CRO) - Zeeman (PBS)
+Matches retour les 17 et 18 janvier.
+db/ps/bvo
